@@ -1,0 +1,111 @@
+GET http://localhost:3030/api/cards
+
+
+GET http://localhost:3030/api/cards/65c87a6be5cfe923241cb173
+
+
+
+POST http://localhost:3030/api/users/register
+content-type: application/json
+
+{
+  "phone": "0502217891",
+  "email": "rona@gmail.com",
+  "name": { "first": "ron", "last": "avnon", "middle": "hana" },
+  "password": "123456Aa!",
+  "image": {
+    "url": "http://www.google.com/",
+    "alt": "nothing here.."
+  },
+  "address": {
+    "country": "israel",
+    "city": "ashdod",
+    "street": "makanim",
+    "houseNumber": 17,
+    "zip": 111141,
+    "state": "israel"
+  },
+  "isBusiness": true
+}
+
+
+POST http://localhost:3030/api/users/login
+content-type: application/json
+
+{
+    "email": "rona@gmail.com",
+    "password":"123456Aa!"
+}
+
+
+GET http://localhost:3030/api/users/65d88f978dd66d17bd848710
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGY5NzhkZDY2ZDE3YmQ4NDg3MTAiLCJpc0FkbWluIjpmYWxzZSwiaXNCdXNpbmVzcyI6dHJ1ZSwiaWF0IjoxNzA4NjkxMzc5LCJleHAiOjE3MTEyODMzNzl9.dmbV6dVYLISYPJWyBqFyt-rAdWr1z_Uss4tgobl4HRc
+
+
+
+
+POST http://localhost:3030/api/cards
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGY5NzhkZDY2ZDE3YmQ4NDg3MTAiLCJpc0FkbWluIjpmYWxzZSwiaXNCdXNpbmVzcyI6dHJ1ZSwiaWF0IjoxNzA4NjkxMzc5LCJleHAiOjE3MTEyODMzNzl9.dmbV6dVYLISYPJWyBqFyt-rAdWr1z_Uss4tgobl4HRc
+ {
+  "title": "my card awesome",
+  "subtitle":"my card awesome subtitle",
+  "description": "this is a test card!!",
+  "phone": "0502217891",
+  "email": "rona@gmail.com",
+  "web": "https://www.facebook.com",
+  "image": {
+    "url": "https://th.bing.com/th?id=OIP.bzZ3h_hbU6R6HPGICMYWzwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=2&pid=3.1&rm=2",
+    "alt": "none"
+  },
+  "address": {
+    "state": "israel",
+    "country": "israel",
+    "city": "ashdod",
+    "street": "makanim",
+    "houseNumber": 17,
+    "zip": 111141
+  }
+}
+
+GET http://localhost:3030/api/cards/my-cards
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGY5NzhkZDY2ZDE3YmQ4NDg3MTAiLCJpc0FkbWluIjpmYWxzZSwiaXNCdXNpbmVzcyI6dHJ1ZSwiaWF0IjoxNzA4NjkxMzc5LCJleHAiOjE3MTEyODMzNzl9.dmbV6dVYLISYPJWyBqFyt-rAdWr1z_Uss4tgobl4HRc
+
+
+
+PUT http://localhost:3030/api/cards/65d891c74228798e85ccea81
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGY5NzhkZDY2ZDE3YmQ4NDg3MTAiLCJpc0FkbWluIjpmYWxzZSwiaXNCdXNpbmVzcyI6dHJ1ZSwiaWF0IjoxNzA4NjkxMzc5LCJleHAiOjE3MTEyODMzNzl9.dmbV6dVYLISYPJWyBqFyt-rAdWr1z_Uss4tgobl4HRc
+
+{
+    "title": "my card awesome (edited)",
+    "subtitle": "my card awesome subtitle",
+    "description": "this is a test card!!",
+    "phone": "0502217891",
+    "email": "rona@gmail.com",
+    "web": "https://www.facebook.com",
+    "image": {
+      "url": "https://th.bing.com/th?id=OIP.bzZ3h_hbU6R6HPGICMYWzwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=2&pid=3.1&rm=2",
+      "alt": "none"
+    },
+    "address": {
+      "state": "israel",
+      "country": "israel",
+      "city": "ashdod",
+      "street": "makanim",
+      "houseNumber": 17,
+      "zip": 111141
+    }
+}
+
+
+PATCH http://localhost:3030/api/cards/65d891c74228798e85ccea81
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGY5NzhkZDY2ZDE3YmQ4NDg3MTAiLCJpc0FkbWluIjpmYWxzZSwiaXNCdXNpbmVzcyI6dHJ1ZSwiaWF0IjoxNzA4NjkxMzc5LCJleHAiOjE3MTEyODMzNzl9.dmbV6dVYLISYPJWyBqFyt-rAdWr1z_Uss4tgobl4HRc
+
+
+
+
+DELETE http://localhost:3030/api/cards/65d891c74228798e85ccea81
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGY5NzhkZDY2ZDE3YmQ4NDg3MTAiLCJpc0FkbWluIjpmYWxzZSwiaXNCdXNpbmVzcyI6dHJ1ZSwiaWF0IjoxNzA4NjkxMzc5LCJleHAiOjE3MTEyODMzNzl9.dmbV6dVYLISYPJWyBqFyt-rAdWr1z_Uss4tgobl4HRc
