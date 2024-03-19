@@ -21,7 +21,7 @@ import isAdmin from "../../middlewares/isAdmin.mw.js";
 import objectIdParamsValidationMiddleware from "../../middlewares/objectIdParamsValidation.mw.js";
 const router = express.Router();
 
-router.get("/", isAdmin, getAllUsersController);
+router.get("/", authMiddleware, isAdmin, getAllUsersController);
 router.get("/:id", authMiddleware, adminOrOwn, getUserByIdController)
 
 router.post(
