@@ -56,6 +56,18 @@ const updateUserController = async (req, res) => {
   }
 };
 
+
+const updateMeController = async (req, res) => {
+  try {
+    let userFromDB = await updateUser(req.userData._id, req.body);
+    userFromDB.password = undefined;
+    res.json(userFromDB);
+  } catch (err) {
+    console.log(err);
+    handleError(res, 400, err.message);
+  }
+};
+
 const getAllUsersController = async (req, res) => {
   try {
     let usersFromDB = await getAllUsersMongo();
@@ -66,7 +78,15 @@ const getAllUsersController = async (req, res) => {
   }
 };
 
-
+const getMe = async (req, res) => {
+  try {
+    let userFromDB = await getUserByIdMongo(req.userData._id);
+    res.json(userFromDB);
+  } catch (err) {
+    console.log(err);
+    handleError(res, 400, err.message);
+  }
+}
 const getUserByIdController = async (req, res) => {
   try {
     let userFromDB = await getUserByIdMongo(req.params.id);
@@ -106,5 +126,7 @@ export {
   deleteUserController,
   patchIsBizController,
   getAllUsersController,
-  getUserByIdController
+  getUserByIdController,
+  getMe,
+  updateMeController
 };

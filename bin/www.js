@@ -17,8 +17,6 @@ import {
 let port = normalizePort(process.env.PORT || "3030");
 app.set("port", port);
 
-
-
 let server = http.createServer(app);
 
 server.listen(port);

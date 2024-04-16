@@ -7,6 +7,8 @@ import {
   patchIsBizController,
   getAllUsersController,
   getUserByIdController,
+  getMe,
+  updateMeController,
 } from "../../controllers/users.controller.js";
 import bodyValidationMiddleware from "../../middlewares/bodyValidation.mw.js";
 import {
@@ -20,8 +22,8 @@ import isAdmin from "../../middlewares/isAdmin.mw.js";
 
 import objectIdParamsValidationMiddleware from "../../middlewares/objectIdParamsValidation.mw.js";
 const router = express.Router();
-
-router.get("/", isAdmin, getAllUsersController);
+router.get("/me", authMiddleware, getMe)
+router.get("/", authMiddleware, isAdmin, getAllUsersController);
 router.get("/:id", authMiddleware, adminOrOwn, getUserByIdController)
 
 router.post(
@@ -36,6 +38,14 @@ router.post(
   loginController
 );
 
+
+
+router.put(
+  "/update",
+  authMiddleware,
+  bodyValidationMiddleware(editUserValidation),
+  updateMeController
+);
 
 router.put(
   "/:id",
